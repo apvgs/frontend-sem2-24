@@ -95,7 +95,7 @@ export default function DevsPage() {
           className='flex items-center gap-1'
         >
           <GitHubLogoIcon />
-          Repositóro do Projeto
+          Repositório do Projeto
         </Link>
       </span>
     </div>
