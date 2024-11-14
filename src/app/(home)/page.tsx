@@ -5,7 +5,9 @@ export default function HomePage() {
     <div className='flex flex-col h-full pt-4'>
       <MainImageComponent />
       <section className='flex flex-col flex-grow border border-border rounded-3xl px-6 py-8 bg-background'>
-        <h1 className='text-primary font-bold text-xl'>SmartConsumo</h1>
+        <h1 className='text-primary font-bold text-xl text-center'>
+          SmartConsumo
+        </h1>
         <div className='flex flex-col pt-4 gap-4'>
           <div>
             <h2 className='font-bold text-lg'>Sobre Nós</h2>
