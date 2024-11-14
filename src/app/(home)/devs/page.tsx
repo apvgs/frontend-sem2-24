@@ -41,12 +41,12 @@ export default function DevsPage() {
   ]
 
   return (
-    <div className='py-4'>
-      <div className='flex flex-col items-center justify-center flex-grow px-8 space-y-4'>
+    <div className='flex flex-col items-center justify-between flex-grow px-8 py-4 space-y-4'>
+      <div className='space-y-4'>
         {devs_list.map(dev => (
           <div
             key={dev.id}
-            className='rounded-xl border bg-card text-card-foreground shadow p-6 space-y-2'
+            className='rounded-xl border bg-card text-card-foreground shadow p-6 space-y-2 w-full max-w-96 md:max-w-[440px]'
           >
             <div className='flex items-center space-x-2'>
               <Image
@@ -86,18 +86,18 @@ export default function DevsPage() {
             </div>
           </div>
         ))}
-        <span className='text-muted-foreground'>
-          <Link
-            href={'https://github.com/apvgs/frontend-sem2-24'}
-            target='_blank'
-            rel='noreferrer'
-            className='flex items-center gap-1'
-          >
-            <GitHubLogoIcon />
-            Repositóro do Projeto
-          </Link>
-        </span>
       </div>
+      <span className='text-muted-foreground'>
+        <Link
+          href={'https://github.com/apvgs/frontend-sem2-24'}
+          target='_blank'
+          rel='noreferrer'
+          className='flex items-center gap-1'
+        >
+          <GitHubLogoIcon />
+          Repositóro do Projeto
+        </Link>
+      </span>
     </div>
   )
 }
