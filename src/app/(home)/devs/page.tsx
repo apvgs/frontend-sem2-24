@@ -86,6 +86,17 @@ export default function DevsPage() {
             </div>
           </div>
         ))}
+        <span className='text-muted-foreground'>
+          <Link
+            href={'https://github.com/apvgs/frontend-sem2-24'}
+            target='_blank'
+            rel='noreferrer'
+            className='flex items-center gap-1'
+          >
+            <GitHubLogoIcon />
+            Repositóro do Projeto
+          </Link>
+        </span>
       </div>
     </div>
   )
