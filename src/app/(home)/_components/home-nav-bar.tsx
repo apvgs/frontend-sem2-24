@@ -10,13 +10,13 @@ const links: LinkProp[] = [
     id: 2,
     label: 'Desenvolvedores',
     path: '/devs',
-    icon: <FolderCode strokeWidth={1} />,
+    icon: <FolderCode strokeWidth={1.25} />,
   },
   {
     id: 3,
     label: 'Conta',
     path: '/auth/login',
-    icon: <User strokeWidth={1} />,
+    icon: <User strokeWidth={1.25} />,
   },
 ]
 export function HomeNavBar() {

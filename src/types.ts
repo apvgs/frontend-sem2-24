@@ -6,3 +6,8 @@ export type LinkProp = {
   path: string
   icon: ReactNode
 }
+
+export type DashboardKhwDailyProp = {
+  time: string
+  kWh: number
+}
