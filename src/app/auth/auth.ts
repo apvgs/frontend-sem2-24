@@ -64,7 +64,7 @@ export async function handleSignUp(formData: SignUpDataInput) {
 
   const signUpData = signupDataParse.success
     ? {
-        nome: signupDataParse.data.name,
+        name: signupDataParse.data.name,
         cpf: signupDataParse.data.cpf,
         email: signupDataParse.data.email,
         password: signupDataParse.data.password,
