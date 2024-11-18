@@ -7,6 +7,7 @@ import { useRouter } from 'next/navigation'
 import { useForm } from 'react-hook-form'
 import { toast } from 'sonner'
 import { handleLogin } from '@/app/auth/auth'
+
 export function LoginForm() {
   const router = useRouter()
 
@@ -69,9 +70,9 @@ export function LoginForm() {
             {...register('password')}
           />
         </div>
-        {formState.errors.email && (
+        {formState.errors.password && (
           <p className='text-destructive text-sm'>
-            {formState.errors.email.message}
+            {formState.errors.password.message}
           </p>
         )}
       </div>

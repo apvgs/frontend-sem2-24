@@ -1,17 +1,17 @@
 import Link from 'next/link'
-import { LoginForm } from './_components/login-form'
+import { SignUpForm } from './_components/signup-form'
 
-export default function LoginPage() {
+export default function SignUpPage() {
   return (
     <section className='flex flex-col flex-grow border border-border rounded-3xl py-8 px-6 bg-background'>
-      <h1 className='font-bold text-xl'>Entrar</h1>
+      <h1 className='font-bold text-xl'>Cadastrar</h1>
       {/* FORM */}
       <div className='flex flex-col gap-4'>
-        <LoginForm />
+        <SignUpForm />
         <p className='text-center text-sm'>
-          Não possui uma conta?{' '}
-          <Link href={'/auth/signup'} className='font-bold'>
-            Cadastre-se
+          Já possui uma conta?{' '}
+          <Link href={'/auth/login'} className='font-bold'>
+            Entrar
           </Link>
         </p>
       </div>

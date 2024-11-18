@@ -1,10 +1,12 @@
 'use client'
+import { logout } from '@/app/auth/auth'
 import { ChevronRight, LogOut } from 'lucide-react'
 import { redirect } from 'next/navigation'
 import { toast } from 'sonner'
 
 export default function SettingsPage() {
   function handleLogout() {
+    logout()
     toast.success('Você saiu da sua conta.', {
       position: 'top-center',
       style: { filter: 'none', zIndex: 10 },

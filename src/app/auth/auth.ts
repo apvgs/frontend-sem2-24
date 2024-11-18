@@ -2,7 +2,12 @@
 import type { jwtToken } from '@/types'
 import { jwtVerify } from 'jose'
 import { cookies } from 'next/headers'
-import { loginDataSchema, type LoginDataInput } from '@/schemas'
+import {
+  loginDataSchema,
+  type SignUpDataInput,
+  type LoginDataInput,
+  signupDataSchema,
+} from '@/schemas'
 
 const key = new TextEncoder().encode(process.env.JWT_SECRET)
 
@@ -51,6 +56,36 @@ export async function handleLogin(formData: LoginDataInput) {
     })
   } catch (e) {
     return Promise.reject(new Error('Houve um erro ao entrar na sua conta.'))
+  }
+}
+
+export async function handleSignUp(formData: SignUpDataInput) {
+  const signupDataParse = signupDataSchema.safeParse(formData)
+
+  const signUpData = signupDataParse.success
+    ? {
+        nome: signupDataParse.data.name,
+        cpf: signupDataParse.data.cpf,
+        email: signupDataParse.data.email,
+        password: signupDataParse.data.password,
+      }
+    : {}
+  try {
+    const req = await fetch(`${process.env.BACKEND_URL}/user/auth/signup`, {
+      method: 'POST',
+      cache: 'no-cache',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(signUpData),
+    })
+
+    if (!req.ok) {
+      const errorResponse = await req.text()
+      return Promise.reject(new Error(JSON.parse(errorResponse).error))
+    }
+  } catch (e) {
+    return Promise.reject(new Error('Houve um erro ao cadastrar sua conta.'))
   }
 }
 
