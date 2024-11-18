@@ -1,5 +1,6 @@
 import type { DashboardKhwDailyProp } from '@/types'
 import { DailyConsumeReport } from './_components/daily-consume-chart'
+import { DatabaseZap, Lightbulb, Zap } from 'lucide-react'
 
 export default function DashboardPage() {
   const kwhDaily: DashboardKhwDailyProp[] = [
@@ -46,6 +47,24 @@ export default function DashboardPage() {
         <div>
           <h1 className='font-bold text-2xl'>Olá {name}</h1>
           <span className='text-muted-foreground'>{formattedDate}</span>
+        </div>
+        {/* aqui vai ter um 2x1 */}
+        <div className='grid grid-cols-2 gap-4 p-3'>
+          <div className='col-span-1 bg-white p-4 rounded-lg shadow-md'>
+            <Lightbulb/>
+            <p>Energia Total Consumida</p>
+            <p className='text-xl'>36.2<span className='text-sm text-muted-foreground'>Kw/h</span></p>
+          </div>
+          <div className='col-span-1 bg-white p-4 rounded-lg shadow-md'>
+            <Zap/>
+            <p>Media de consumo</p> 
+            <p className='text-xl'>28.4<span className='text-sm text-muted-foreground'>Kw/h</span></p>
+            </div>
+          <div className='col-span-2 bg-white p-4 rounded-lg shadow-md flex justify-between'>
+            <DatabaseZap/>
+            <p>Preço Previsto</p>
+            <p className='text-xl p-2 text-center'><span className='text-sm text-muted-foreground'>R$</span>250,00 </p>
+            </div>
         </div>
       </div>
       <div className='flex flex-col rounded-xl shadow-lg p-2 py-4'>

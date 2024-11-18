@@ -1,6 +1,6 @@
 import { DashboardNavBar } from './_components/dashboard-nav-bar'
 
-export default function HomeLayout({
+export default function DashboardLayout({
   children,
 }: { children: React.ReactNode }) {
   return (
