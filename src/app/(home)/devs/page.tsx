@@ -69,7 +69,7 @@ export default function DevsPage() {
                 href={dev.github_link}
                 target='_blank'
                 rel='noreferrer'
-                className='flex items-center gap-1'
+                className='flex items-center gap-1 hover:underline'
               >
                 <GitHubLogoIcon />
                 GitHub
@@ -78,7 +78,7 @@ export default function DevsPage() {
                 href={dev.linkedin_link}
                 target='_blank'
                 rel='noreferrer'
-                className='flex items-center gap-1'
+                className='flex items-center gap-1 hover:underline'
               >
                 <LinkedInLogoIcon />
                 LinkedIn
@@ -92,7 +92,7 @@ export default function DevsPage() {
           href={'https://github.com/apvgs/frontend-sem2-24'}
           target='_blank'
           rel='noreferrer'
-          className='flex items-center gap-1'
+          className='flex items-center gap-1 hover:underline'
         >
           <GitHubLogoIcon />
           Repositório do Projeto

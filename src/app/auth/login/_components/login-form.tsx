@@ -5,8 +5,8 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import { LockKeyhole, Mail } from 'lucide-react'
 import { useRouter } from 'next/navigation'
 import { useForm } from 'react-hook-form'
-import { handleLogin } from '../handle-login'
 import { toast } from 'sonner'
+import { handleLogin } from '@/app/auth/auth'
 export function LoginForm() {
   const router = useRouter()
 

@@ -1,11 +1,14 @@
 'use client'
-import { ChevronRight, LogOut, User } from 'lucide-react'
-import Link from 'next/link'
+import { ChevronRight, LogOut } from 'lucide-react'
 import { redirect } from 'next/navigation'
+import { toast } from 'sonner'
 
 export default function SettingsPage() {
   function handleLogout() {
-    console.log('saindo...')
+    toast.success('Você saiu da sua conta.', {
+      position: 'top-center',
+      style: { filter: 'none', zIndex: 10 },
+    })
     redirect('/')
   }
 
@@ -13,16 +16,6 @@ export default function SettingsPage() {
     <div className='flex flex-col flex-grow px-8 py-4'>
       <h1 className='font-bold text-2xl'>Ajustes</h1>
       <div className='flex flex-col space-y-1 items-center px-2'>
-        <Link
-          href={'/dashboard/settings/user'}
-          className='flex w-full justify-between border-b-2 px-2 py-4'
-        >
-          <div className='flex space-x-2'>
-            <User strokeWidth={1.5} />
-            <p>Conta</p>
-          </div>
-          <ChevronRight />
-        </Link>
         <button
           type='button'
           onClick={handleLogout}

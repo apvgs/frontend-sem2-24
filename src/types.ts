@@ -11,3 +11,9 @@ export type DashboardKhwDailyProp = {
   time: string
   kWh: number
 }
+
+export type jwtToken = {
+  iss: string
+  sub: string
+  exp: number
+}
