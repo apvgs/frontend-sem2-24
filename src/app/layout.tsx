@@ -11,8 +11,8 @@ export const viewport: Viewport = {
 }
 
 export const metadata: Metadata = {
-  title: 'GlobalSolution',
-  description: 'Site do GlobalSolution',
+  title: 'SmartConsumo',
+  description: 'Site do SmartConsumo',
 }
 
 const inter = Inter({ subsets: ['latin'] })
