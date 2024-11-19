@@ -37,3 +37,10 @@ export const signupDataSchema = z
   })
 
 export type SignUpDataInput = z.infer<typeof signupDataSchema>
+
+export const deviceDataSchema = z.object({
+  code: z.string().min(8, 'O código deve ter ao menos 8 caracteres.'),
+  location: z.string().min(1, 'A localização não pode ser nula.'),
+})
+
+export type DeviceData = z.infer<typeof deviceDataSchema>
