@@ -41,7 +41,7 @@ export function DeviceList({ devices }: { devices: DeviceData[] }) {
         </Table>
       ) : (
         <p className='text-muted-foreground text-center text-sm pt-4'>
-          Parece que você ainda não conectou algum dispositivo...
+          Parece que você ainda não conectou nenhum dispositivo...
         </p>
       )}
     </div>

@@ -1,13 +1,12 @@
 import type { DashboardKhwDailyProp, UserDashboardDetails } from '@/types'
-import { DailyConsumeReport } from './_components/daily-consume-chart'
 import { DatabaseZap, Lightbulb, Zap } from 'lucide-react'
 import { cookies } from 'next/headers'
 import { Button } from '@/components/ui/button'
 import Link from 'next/link'
 import not_found_img from '/public/iot_not_found.svg'
 import Image from 'next/image'
-import SetUserData from './_components/set-user-data'
 import { redirect } from 'next/navigation'
+import { ConsumeReportChart } from './_components/consume-chart'
 
 export default async function DashboardPage() {
   const c = await cookies()
@@ -49,11 +48,10 @@ export default async function DashboardPage() {
     { time: '23h', kWh: 41 },
   ]
 
-  // formatar
-  // const a: DashboardKhwDailyProp[] = data.list.map(item => ({
-  //   time: item.dt_medicao,
-  //   kWh: item.consumo,
-  // }))
+  const kwhList: DashboardKhwDailyProp[] = data.list.map(item => ({
+    time: item.dt_medicao,
+    kWh: item.consumo,
+  }))
 
   let formattedData = ''
   try {
@@ -153,7 +151,7 @@ export default async function DashboardPage() {
               </div>
             </div>
           </div>
-          <div className='flex flex-col rounded-xl shadow-lg p-2 py-4 overflow-hidden sm:flex-grow'>
+          <div className='flex flex-col min-h-72 rounded-xl shadow-lg p-2 py-4 overflow-hidden sm:flex-grow gap-4'>
             <div className='px-8'>
               <h2 className='text-muted-foreground'>
                 Relatório de Consumo Diário
@@ -163,7 +161,13 @@ export default async function DashboardPage() {
                 <span className='text-muted-foreground text-sm'>Kw/h</span>
               </h2>
             </div>
-            <DailyConsumeReport data={kwhDaily} />
+            {kwhDaily.length > 0 ? (
+              <ConsumeReportChart data={kwhDaily} />
+            ) : (
+              <p className='text-sm pt-16 text-center'>
+                Nenhum dispositivo registrou um consumo de energia hoje.
+              </p>
+            )}
           </div>
         </div>
       )}

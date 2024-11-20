@@ -12,9 +12,10 @@ import {
   XAxis,
   CartesianGrid,
   ResponsiveContainer,
+  YAxis,
 } from 'recharts'
 
-interface DailyConsumeReportProps {
+interface ConsumeReportProps {
   data: DashboardKhwDailyProp[]
 }
 
@@ -25,7 +26,7 @@ const chartConfig = {
   },
 } satisfies ChartConfig
 
-export function DailyConsumeReport({ data }: DailyConsumeReportProps) {
+export function ConsumeReportChart({ data }: ConsumeReportProps) {
   return (
     <ResponsiveContainer width='100%' height='100%'>
       <ChartContainer config={chartConfig}>
@@ -38,6 +39,7 @@ export function DailyConsumeReport({ data }: DailyConsumeReportProps) {
           }}
         >
           <CartesianGrid vertical={false} />
+          <YAxis />
           <XAxis
             dataKey='time'
             tickLine={false}
