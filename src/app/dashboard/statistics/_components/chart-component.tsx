@@ -23,8 +23,7 @@ async function fetchConsumeByData(data: string) {
   if (!res.ok) {
     throw new Error('Erro ao buscar dados')
   }
-  const d: ConsumeData[] = await res.json()
-  return d
+  return await res.json()
 }
 
 export function ChartComponent({
@@ -33,10 +32,10 @@ export function ChartComponent({
   const [kwhData, setKwhData] = useState<DashboardKhwDailyProp[]>([])
 
   async function onSelectValueChange(value: string) {
-    const data = await fetchConsumeByData(value)
+    const data: ConsumeData[] = await fetchConsumeByData(value)
 
     const formattedData: DashboardKhwDailyProp[] = data.map(item => ({
-      time: item.dt_medicao,
+      time: `${item.dt_medicao.split(':')[1]}h`,
       kWh: item.consumo,
     }))
     setKwhData(formattedData)
@@ -45,7 +44,7 @@ export function ChartComponent({
   return (
     <div className='space-y-4 pb-12 sm:pb-0'>
       <Select onValueChange={onSelectValueChange}>
-        <SelectTrigger className='w-[150px]' defaultValue={'TESTEOLA'}>
+        <SelectTrigger className='w-[150px]'>
           <SelectValue placeholder='Selecione...' />
         </SelectTrigger>
         <SelectContent>

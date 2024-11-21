@@ -21,8 +21,8 @@ export default async function DashboardPage() {
   })
   const data: UserDashboardDetails = await req.json()
 
-  const kwhList: DashboardKhwDailyProp[] = data.list.map(item => ({
-    time: item.dt_medicao,
+  const kwhList: DashboardKhwDailyProp[] = (data.list || []).map(item => ({
+    time: `${item.dt_medicao.split(':')[1]}h`,
     kWh: item.consumo,
   }))
 
@@ -107,7 +107,7 @@ export default async function DashboardPage() {
                     </p>
                   </div>
                   <p className='text-lg'>
-                    {data.mediaDiaria}
+                    {data.mediaDiaria.toFixed(2)}
                     <span className='text-sm text-muted-foreground'>Kw/h</span>
                   </p>
                 </div>

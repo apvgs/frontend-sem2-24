@@ -38,7 +38,7 @@ export function DateConsumeInfo({ consumoDiario, consumoTotal }: DadosConsumo) {
       <div className='space-y-4 pt-4'>
         <div className='flex gap-2 items-center justify-between'>
           <Select onValueChange={onSelectValueChange}>
-            <SelectTrigger className='w-[150px]' defaultValue={'TESTEOLA'}>
+            <SelectTrigger className='w-[150px]'>
               <SelectValue placeholder='Selecione...' />
             </SelectTrigger>
             <SelectContent>
