@@ -21,33 +21,6 @@ export default async function DashboardPage() {
   })
   const data: UserDashboardDetails = await req.json()
 
-  const kwhDaily: DashboardKhwDailyProp[] = [
-    { time: '00h', kWh: 32 },
-    { time: '01h', kWh: 30 },
-    { time: '02h', kWh: 28 },
-    { time: '03h', kWh: 25 },
-    { time: '04h', kWh: 24 },
-    { time: '05h', kWh: 23 },
-    { time: '06h', kWh: 26 },
-    { time: '07h', kWh: 28 },
-    { time: '08h', kWh: 35 },
-    { time: '09h', kWh: 37 },
-    { time: '10h', kWh: 40 },
-    { time: '11h', kWh: 42 },
-    { time: '12h', kWh: 45 },
-    { time: '13h', kWh: 43 },
-    { time: '14h', kWh: 41 },
-    { time: '15h', kWh: 39 },
-    { time: '16h', kWh: 38 },
-    { time: '17h', kWh: 40 },
-    { time: '18h', kWh: 44 },
-    { time: '19h', kWh: 46 },
-    { time: '20h', kWh: 47 },
-    { time: '21h', kWh: 45 },
-    { time: '22h', kWh: 43 },
-    { time: '23h', kWh: 41 },
-  ]
-
   const kwhList: DashboardKhwDailyProp[] = data.list.map(item => ({
     time: item.dt_medicao,
     kWh: item.consumo,
@@ -161,10 +134,10 @@ export default async function DashboardPage() {
                 <span className='text-muted-foreground text-sm'>Kw/h</span>
               </h2>
             </div>
-            {kwhDaily.length > 0 ? (
-              <ConsumeReportChart data={kwhDaily} />
+            {kwhList.length > 0 ? (
+              <ConsumeReportChart data={kwhList} />
             ) : (
-              <p className='text-sm pt-16 text-center'>
+              <p className='text-sm pt-12 text-center text-muted-foreground'>
                 Nenhum dispositivo registrou um consumo de energia hoje.
               </p>
             )}

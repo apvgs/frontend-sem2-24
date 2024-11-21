@@ -42,3 +42,13 @@ export type DeviceData = {
   codigo: string
   localizacao: string
 }
+
+export type ConsumoDiario = {
+  data: string
+  consumo: number
+}
+
+export type DadosConsumo = {
+  consumoDiario: ConsumoDiario[]
+  consumoTotal: number
+}
