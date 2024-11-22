@@ -17,35 +17,6 @@ export default async function NotificationsPage() {
   })
 
   const data: NotificationType[] = await req.json()
-  console.log(data)
-
-  const notificacoes: NotificationType[] = [
-    {
-      id: 1,
-      mensagem: 'Sua consulta foi agendada com sucesso.',
-      data: '21/11/2024 09:15:30',
-    },
-    {
-      id: 2,
-      mensagem: 'O pagamento da sua mensalidade foi confirmado.',
-      data: '20/11/2024 14:45:10',
-    },
-    {
-      id: 3,
-      mensagem: 'Nova atualização disponível no aplicativo.',
-      data: '19/11/2024 18:30:50',
-    },
-    {
-      id: 4,
-      mensagem: 'Seu relatório está pronto para download.',
-      data: '18/11/2024 12:00:00',
-    },
-    {
-      id: 5,
-      mensagem: 'Não se esqueça do evento de amanhã às 10h.',
-      data: '21/11/2024 08:00:00',
-    },
-  ]
 
   return (
     <div className='flex flex-col flex-grow px-8 pt-4 space-y-4'>
