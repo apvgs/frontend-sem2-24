@@ -130,7 +130,7 @@ export function SignUpForm() {
           </p>
         )}
       </div>
-      <Button className='py-6 text-base mt-4'>Entrar</Button>
+      <Button className='py-6 text-base mt-4'>Cadastrar</Button>
     </form>
   )
 }
